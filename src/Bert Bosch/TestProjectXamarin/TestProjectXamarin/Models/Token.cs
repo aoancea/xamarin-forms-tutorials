@@ -11,5 +11,7 @@ namespace TestProjectXamarin.Models
         public string error_description { get; set; }
 
         public DateTime expire_date { get; set; }
+
+        public int expires_in { get; set; }
     }
 }

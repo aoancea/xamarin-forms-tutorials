@@ -28,18 +28,24 @@ namespace TestProjectXamarin.Views
             Entry_Password.Completed += (s, e) => SignInProcedure(s, e);
         }
 
-        void SignInProcedure(object sender, EventArgs e)
+        async void SignInProcedure(object sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
 
             if (user.CheckInformation())
             {
-                DisplayAlert("Login", "Login Success", "Ok");
-                App.UserDatabase.SaveUser(user);
+                Token token = await App.RestService.Login(user);
+
+                if (token.access_token != null)
+                {
+                    App.UserDatabase.SaveUser(user);
+                }
+
+                await DisplayAlert("Login", "Login Success", "Ok");
             }
             else
             {
-                DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
+                await DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
             }
         }
     }
