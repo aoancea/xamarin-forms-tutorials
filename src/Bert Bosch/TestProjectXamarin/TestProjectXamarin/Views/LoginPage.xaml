@@ -5,6 +5,7 @@
     <StackLayout x:Name="MasterLayout">
 
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+            <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
             <Image x:Name="LoginIcon" Source="LoginIcon.png" Margin="0,80,0,0" />
         </StackLayout>
 
