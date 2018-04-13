@@ -1,5 +1,5 @@
 ﻿using System;
-using TestProjectXamarin.Data;
+using TestProjectXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -35,6 +35,7 @@ namespace TestProjectXamarin.Views
             if (user.CheckInformation())
             {
                 DisplayAlert("Login", "Login Success", "Ok");
+                App.UserDatabase.SaveUser(user);
             }
             else
             {

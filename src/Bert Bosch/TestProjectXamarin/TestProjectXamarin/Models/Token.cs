@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestProjectXamarin.Data
+namespace TestProjectXamarin.Models
 {
     public class Token
     {

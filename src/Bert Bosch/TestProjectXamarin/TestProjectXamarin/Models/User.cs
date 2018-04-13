@@ -1,7 +1,10 @@
-﻿namespace TestProjectXamarin.Data
+﻿using SQLite;
+
+namespace TestProjectXamarin.Models
 {
     public class User
     {
+        [PrimaryKey]
         public int Id { get; set; }
 
         public string Username { get; set; }
