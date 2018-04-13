@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestProjectXamarin.Views.Menu.MasterPage"
+             Title="Test Project">
+    <ContentPage.Content>
+        <StackLayout x:Name="MasterStack" VerticalOptions="FillAndExpand">
+
+            <StackLayout x:Name="TopStack">
+                <Label Text="TestProject App" HorizontalOptions="Center" FontSize="Large"/>
+            </StackLayout>
+
+            <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listview" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid BackgroundColor="{Binding BackgroundColor}">
+                                    <Image Source="{Binding IconSource}" Margin="0,10,0,10" />
+                                    <Label Grid.Column="1" Text="{Binding Text}" TextColor="Black" FontSize="Medium" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+
+            <StackLayout x:Name="BottomStack" VerticalOptions="EndAndExpand">
+                <Button Text="Logout"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

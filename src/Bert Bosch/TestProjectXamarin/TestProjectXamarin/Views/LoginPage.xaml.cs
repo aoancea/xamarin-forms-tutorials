@@ -48,15 +48,15 @@ namespace TestProjectXamarin.Views
 
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new NavigationPage(new MasterDetail());
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                        await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
                     }
                     else
                     {
-                        await Navigation.PushAsync(new Dashboard()); // might not work for UWP
+                        await Navigation.PushAsync(new MasterDetail()); // might not work for UWP
                     }
                 }
             }
