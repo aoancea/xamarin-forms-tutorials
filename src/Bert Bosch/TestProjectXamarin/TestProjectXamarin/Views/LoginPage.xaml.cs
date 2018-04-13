@@ -1,5 +1,6 @@
 ﻿using System;
 using TestProjectXamarin.Models;
+using TestProjectXamarin.Views.Menu;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -41,9 +42,23 @@ namespace TestProjectXamarin.Views
                 if (token.access_token != null)
                 {
                     App.UserDatabase.SaveUser(user);
-                }
+                    App.TokenDatabase.SaveToken(token);
 
-                await DisplayAlert("Login", "Login Success", "Ok");
+                    await DisplayAlert("Login", "Login Success", "Ok");
+
+                    if (Device.OS == TargetPlatform.Android)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                    }
+                    else if (Device.OS == TargetPlatform.iOS)
+                    {
+                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new Dashboard()); // might not work for UWP
+                    }
+                }
             }
             else
             {
